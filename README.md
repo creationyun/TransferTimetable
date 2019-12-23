@@ -1,1 +1,22 @@
 # TransferTimetable
+
+이 프로그램은 파이썬으로 작성되었으며, 두 역의 시간표를 비교하여 환승 시간표를 도출합니다.
+
+The program is written in Python, and it compares the timetables of two stations to derive a transit timetable.
+
+## 실행 방법 (How to run)
+
+```
+python transfer_timetable.py timetable1.txt timetable2.txt
+```
+
+시간표가 timetable1.txt인 역에서 시간표가 timetable2.txt인 역으로 환승했을 때의 실행 결과가 도출된다.
+
+The execution result is obtained when I transfer from the station whose timetable is timetable1.txt, to the station whose timetable is timetable2.txt.
+
+## 시간표 파일 샘플 (Sample timetable files)
+
+```sinnae_6_eungam_loop.txt```: 서울 지하철 6호선 신내역 응암순환 방면 시간표
+
+```sinnae_gyeongchun_cheongnyangni.txt```: 수도권 전철 경춘선 신내역 상봉/청량리 방면 시간표
+
