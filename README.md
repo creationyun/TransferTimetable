@@ -16,9 +16,9 @@ The execution result is obtained when I transfer from the station whose timetabl
 
 ## 시간표 파일 샘플 (Sample timetable files)
 
-```sinnae_6_eungam_loop.txt```: 서울 지하철 6호선 신내역 응암순환 방면 시간표
+```sinnae_6_eungam_loop_weekday.txt```: 서울 지하철 6호선 신내역 평일 응암순환 방면 시간표
 
-```sinnae_gyeongchun_cheongnyangni.txt```: 수도권 전철 경춘선 신내역 상봉/청량리 방면 시간표
+```sinnae_GC_cheongnyangni_weekday.txt```: 수도권 전철 경춘선 신내역 평일 상봉/청량리 방면 시간표
 
 ## 수정 내역
 
