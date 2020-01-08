@@ -1,4 +1,4 @@
-# TransferTimetable 0.2
+# TransferTimetable 0.3
 
 이 프로그램은 파이썬으로 작성되었으며, 두 역의 시간표를 비교하여 환승 시간표를 도출합니다.
 
@@ -18,8 +18,13 @@ The execution result is obtained when I transfer from the station whose timetabl
 
 ```sinnae_6_eungam_loop_weekday.txt```: 서울 지하철 6호선 신내역 평일 응암순환 방면 시간표
 
+```sinnae_6_sinnae_weekday.txt```: 서울 지하철 6호선 신내역 평일 신내 도착 시간표
+
 ```sinnae_GC_cheongnyangni_weekday.txt```: 수도권 전철 경춘선 신내역 평일 상봉/청량리 방면 시간표
+
+```sinnae_GC_chuncheon_weekday.txt```: 수도권 전철 경춘선 신내역 평일 춘천 방면 시간표
 
 ## 수정 내역
 
 * Version 0.2: requires custom transfer-walk-minutes.
+* Version 0.3: 2 timetables require their own information, and destination. More 2 sample files added.

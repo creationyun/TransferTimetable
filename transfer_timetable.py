@@ -10,14 +10,14 @@ if argc < 3:
 
 filename1 = sys.argv[1]
 filename2 = sys.argv[2]
-transfer_walk_minute_int = int(sys.argv[3])
+transfer_walk_minute = float(sys.argv[3])
 
 # initial variables
 timetable1 = []
 timetable1_info = {}
 timetable2 = []
 timetable2_info = {}
-transfer_walk_minute = timedelta(minutes=transfer_walk_minute_int)
+transfer_walk_time = timedelta(minutes=transfer_walk_minute)
 
 # # first file -> make timetable array
 # load info
@@ -64,14 +64,14 @@ f2.close()
 # comparison station1 -> station2
 print('Transfer Timetable Result')
 print(f'{timetable1_info["station"]} {timetable1_info["line"]} ({timetable1_info["week"]}, {timetable1_info["direction"]}) \
--> {timetable2_info["station"]} {timetable2_info["line"]} ({timetable2_info["week"]}, {timetable2_info["direction"]}) ({transfer_walk_minute_int} minutes)')
+-> {timetable2_info["station"]} {timetable2_info["line"]} ({timetable2_info["week"]}, {timetable2_info["direction"]}) ({transfer_walk_minute} minutes)')
 print()
 i = 0
 j = 0
 result = []
 while i < len(timetable1) and j < len(timetable2):
     # test if the [time1 + walk] and time2
-    if timetable1[i][1] + transfer_walk_minute <= timetable2[j][1]:
+    if timetable1[i][1] + transfer_walk_time <= timetable2[j][1]:
         # transfer possible
         result.append((timetable1[i][0], timetable2[j][0],
                        timetable1[i][1], timetable2[j][1],
@@ -84,4 +84,4 @@ while i < len(timetable1) and j < len(timetable2):
 # print result
 for tup in result:
     print(
-        '{} {:%H:%M:%S} -> {} {:%H:%M:%S} (+{})'.format(tup[0], tup[2], tup[1], tup[3], tup[4]))
+        '{}\t{:%H:%M:%S}  ->  {}\t{:%H:%M:%S} (+{})'.format(tup[0], tup[2], tup[1], tup[3], tup[4]))
