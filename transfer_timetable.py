@@ -85,3 +85,15 @@ while i < len(timetable1) and j < len(timetable2):
 for tup in result:
     print(
         '{}\t{:%H:%M:%S}  ->  {}\t{:%H:%M:%S} (+{})'.format(tup[0], tup[2], tup[1], tup[3], tup[4]))
+
+# save result as a file
+print()
+print('Do you want to create a file to save (y/n)? ', end='')
+response = input()
+if response == 'Y' or response == 'y':
+    f3 = open('result.txt', 'w')
+    for tup in result:
+        f3.write('{}\t{:%H:%M:%S}  ->  {}\t{:%H:%M:%S} (+{})\n'.format(
+            tup[0], tup[2], tup[1], tup[3], tup[4]))
+    f3.close()
+    print('result.txt saved.')
