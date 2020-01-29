@@ -1,12 +1,12 @@
 # TransferTimetable 0.4
 
-이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램이다.
+이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
 The program compares the timetables of two stations to derive a transit timetable.
 
 ## 실행 방법 (How to run)
 
-이 프로그램은 Python 3.x 으로 작성되어 있으므로, Python 설치가 필요하다.
+이 프로그램은 Python 3.x 으로 작성되어 있으므로, Python 설치가 필요합니다.
 
 This program is written in Python 3.x, so you need to install it.
 
@@ -14,9 +14,9 @@ This program is written in Python 3.x, so you need to install it.
 python timetable_transfer.py [timetable1.txt] [timetable2.txt] [transfer_walk_minute]
 ```
 
-실행하면, 시간표가 timetable1.txt인 역에서 시간표가 timetable2.txt인 역으로 transfer_walk_minute 만에 환승했을 때의 실행 결과가 도출된다. 파일 저장도 가능하다.
+실행하면, 시간표가 timetable1.txt인 역에서 시간표가 timetable2.txt인 역으로 transfer_walk_minute 만에 환승했을 때의 실행 결과가 도출됩니다. 원하면 파일 저장도 가능합니다.
 
-After running, the execution result is obtained when I transfer from the station whose timetable is timetable1.txt, to the station whose timetable is timetable2.txt within transfer_walk_minute time. You can also save it as a file.
+After running, the execution result is obtained when I transfer from the station whose timetable is timetable1.txt, to the station whose timetable is timetable2.txt within transfer_walk_minute time. If you want, you can also save it as a file.
 
 ## 시간표 파일 샘플 (Sample timetable files)
 
