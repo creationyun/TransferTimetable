@@ -83,11 +83,23 @@ while i < len(timetable1) and j < len(timetable2):
 
 # print result
 for tup in result:
+    # set colors
+    if tup[4] > timedelta(minutes=10) + transfer_walk_time:
+        # over 10 minutes + walk...
+        print('\033[38;5;160m', end='')   # Red
+    elif tup[4] > timedelta(minutes=3) + transfer_walk_time:
+        # over 3 minutes + walk...
+        print('\033[38;5;255m', end='')   # White
+    else:
+        # less 3 minutes + walk...
+        print('\033[38;5;40m', end='')    # Green
+
+    # print timeline
     print(
         '{}\t{:%H:%M:%S}  ->  {}\t{:%H:%M:%S} (+{})'.format(tup[0], tup[2], tup[1], tup[3], tup[4]))
 
 # save result as a file
-print()
+print('\033[0m')   # reset color
 print('Do you want to create a file to save (y/n)? ', end='')
 response = input()
 if response == 'Y' or response == 'y':
