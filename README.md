@@ -1,4 +1,4 @@
-# TransferTimetable 0.5
+# TransferTimetable 0.5.1
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
@@ -36,19 +36,26 @@ A transfer timetable will be derived for when you arrive at Sinnae station on Li
 
 Timetable directory structure is as follows:
 
-* sinnae: 신내역 (Seoul subway - Sinnae station)
+* sinnae: 신내역 (Seoul Metropolitan Subway - Sinnae station)
   * weekday: 평일, saturday: 토요일, sunday_holiday: 일요일/공휴일
     * `6_eungam_loop.txt`: 6호선 응암순환 방면 (Seoul Metro Line 6 - For Eungam Loop)
     * `6_sinnae.txt`: 6호선 신내 도착 (Seoul Metro Line 6 - Sinnae arrival)
     * `gyeongchun_cheongnyangni.txt`: 경춘선 상봉/청량리 방면 (KORAIL Gyeongchun Line - For Sangbong or Cheongnyangni)
     * `gyeongchun_chuncheon.txt`: 경춘선 춘천 방면 (KORAIL Gyeongchun Line - For Chuncheon)
 
-* imae: 이매역 (Seoul subway - Imae station)
+* imae: 이매역 (Seoul Metropolitan Subway - Imae station)
   * weekday: 평일, saturday: 토요일, sunday_holiday: 일요일/공휴일
     * `bundang_wangsimni.txt`: 분당선 왕십리 방면 (KORAIL Bundang Line - For Wangsimni)
     * `bundang_suwon.txt`: 분당선 수원 방면 (KORAIL Bundang Line - For Suwon)
     * `gyeonggang_pangyo.txt`: 경강선 판교 방면 (KORAIL Gyeonggang Line - For Pangyo)
     * `gyeonggang_yeoju.txt`: 경강선 여주 방면 (KORAIL Gyeonggang Line - For Yeoju)
+
+* choji: 초지역 (Seoul Metropolitan Subway - Choji station)
+  * weekday: 평일, saturday: 토요일, sunday_holiday: 일요일/공휴일
+    * `4_danggogae.txt`: 4호선 당고개 방면 (Seoul Metro/KORAIL Line 4 - For Danggogae)
+    * `4_oido.txt`: 4호선 오이도 방면 (Seoul Metro/KORAIL Line 4 - For Oido)
+    * `seohae_sosa.txt`: 서해선 소사 방면 (Seohae Line - For Sosa)
+    * `seohae_wonsi.txt`: 서해선 원시 방면 (Seohae Line - For Wonsi)
 
 ## 수정 내역 (Revision history)
 
@@ -57,3 +64,4 @@ Timetable directory structure is as follows:
 * Version 0.4: add a feature that can save result as a file.
 * Version 0.4.1: change from [] to <> in 'Usage: ...', weekend timetable files added.
 * Version 0.5: change timetable directory structure, add Imae station sample, add color to timetable.
+* Version 0.5.1: More sample timetable files (Choji station) added.
