@@ -30,6 +30,62 @@ $ python timetable_transfer.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 
 A transfer timetable will be derived for when you arrive at Sinnae station on Line 6 and transfer on Gyeongchun Line for Chuncheon in 2.5 minutes.
 
+## 시간표 파일 구조 (Structure of the timetable file)
+
+시간표 파일 구조는 텍스트 파일이며, 다음과 같이 작성하시면 됩니다.
+
+The timetable file structure is a text file and you can write as follows.
+
+```
+[역명] [노선명] [평일/토요일/일요일/공휴일] [열차의 방향]
+[행선지] [도착 시간]
+[행선지] [도착 시간]
+[행선지] [도착 시간]
+[행선지] [도착 시간]
+...
+[행선지] [도착 시간]
+```
+
+English:
+
+```
+[Station] [Line name] [Weekday/Saturday/Sunday/Holiday] [Train's direction]
+[Bound for] [Arrive time]
+[Bound for] [Arrive time]
+[Bound for] [Arrive time]
+[Bound for] [Arrive time]
+...
+[Bound for] [Arrive time]
+```
+
+1. 첫 번째 줄은 역명, 노선명, 일주일 종류, 방향을 입력하시면 됩니다.
+   
+   In the first line, you can enter the station name, line name, train's workweek type and direction.
+
+   + 역명: 역 이름 (예: 서울역, 강남역, ...)
+   + 노선명: 노선 이름 (예: 1호선, 2호선, 공항철도, ...)
+   + 평일, 토요일, 일요일, 공휴일 중 일요일/공휴일은 하나로 묶어서 입력하는 것이 좋습니다.
+   + 열차의 방향: 상행/하행 중 선택
+     + 애매할 경우 방화행 등 대표 행선지를 입력해주셔도 됩니다.
+
+   + Station: A name of subway station (e.g. Seoul_station, Gangnam_station, ...)
+   + Line name: A name of subway line (e.g. Line_1, Line_2, Airport_Railroad, ...)
+   + It is recommended to enter Sunday/Holiday together in Weekday, Saturday, Sunday, Holiday.
+   + Direction of train: choose up or down
+     + If you are unsure, you can also enter a representative (bound for) destination, such as For_Banghwa.
+
+2. 두 번째 줄부터 끝까지는 행선지와 도착 시간을 입력하시면 됩니다.
+   
+   From the second line to the end, you can enter trains' destinations and arrival times.
+
+이 프로그램은 파일을 띄어쓰기로 구분해서 인식하기 때문에, 띄어쓰기가 있을 경우 언더바(_)로 입력해주세요.
+
+This program recognizes files as separated by spaces, so if they have spaces, enter them with underscores (_).
+
+시간표 파일 예시를 확인하고 싶다면 아래에 나와 있는 샘플 파일들을 참고해주시기 바랍니다.
+
+If you want to look for several example files, please refer to the sample files listed below.
+
 ## 시간표 파일 샘플 (Sample timetable files)
 
 시간표 디렉토리 구조는 다음과 같습니다:
