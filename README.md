@@ -157,4 +157,4 @@ $ python timetable_transfer.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 * Version 0.4.1: changed from [] to <> in 'Usage: ...', weekend timetable files added.
 * Version 0.5: changed timetable directory structure, add Imae station sample, add color to timetable.
 * Version 0.5.1: added more sample timetable files (Choji station).
-* Version 0.6: separated `README.md` into 2 sections in different languages.
+* Version 0.6: separated `README.md` into 2 sections in different languages, and changed result file type (TXT -> HTML).

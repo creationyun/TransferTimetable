@@ -8,8 +8,10 @@ def main():
     # read 2 file name arguments
     argc = len(sys.argv) - 1
     if argc < 3:
-        print('Usage: python timetable_transfer.py \
-<timetable1.txt> <timetable2.txt> <transfer_walk_minute>')
+        print(
+            ('Usage: python timetable_transfer.py'
+             ' <timetable1.txt> <timetable2.txt> <transfer_walk_minute>')
+        )
         sys.exit(1)
 
     filename1 = sys.argv[1]
@@ -33,10 +35,13 @@ def main():
 
     # comparison station1 -> station2
     print('Transfer Timetable Result')
-    print(f'\
-{timetable1_info["station"]} {timetable1_info["line"]} ({timetable1_info["week"]}, {timetable1_info["direction"]}) \
- -> {timetable2_info["station"]} {timetable2_info["line"]} ({timetable2_info["week"]}, {timetable2_info["direction"]}) \
-({transfer_walk_minute} minutes)')
+    print(
+        (f'{timetable1_info["station"]} {timetable1_info["line"]}'
+         f' ({timetable1_info["week"]}, {timetable1_info["direction"]})'
+         f' -> {timetable2_info["station"]} {timetable2_info["line"]}'
+         f' ({timetable2_info["week"]}, {timetable2_info["direction"]})'
+         f' ({transfer_walk_minute} minutes)')
+    )
     print()
     i = 0
     j = 0
@@ -59,7 +64,7 @@ def main():
 
     # print result
     for info in result:
-        # set colors
+        # set screen colors
         if info['transfer_time_needed'] > timedelta(minutes=10) + transfer_walk_time:
             # over 10 minutes + walk...
             print('\033[38;5;160m', end='')   # Red
@@ -76,19 +81,52 @@ def main():
             info['after_transfer_train_bound'], info['after_transfer_train_time'],
             info['transfer_time_needed']))
 
-    # save result as a file
+    # save result as a HTML file
     print('\033[0m')   # reset color
-    print('Do you want to create a file to save (y/n)? ', end='')
+    print('Do you want to create a HTML file to save (y/n)? ', end='')
     response = input()
     if response in ('Y', 'y'):
-        result_file = open('result.txt', 'w')
+        result_file = open('result.html', 'w')
+
+        # Head of HTML
+        result_file.write(
+            ('<!DOCTYPE html>\n<html>\n<head>\n<meta charset="utf-8">\n'
+             '<title>TransferTimetable Results</title>\n'
+             '</head>\n<body>\n'
+             f'<h3>{timetable1_info["station"]} {timetable1_info["line"]}'
+             f' ({timetable1_info["week"]}, {timetable1_info["direction"]})'
+             f' -> {timetable2_info["station"]} {timetable2_info["line"]}'
+             f' ({timetable2_info["week"]}, {timetable2_info["direction"]})'
+             f' ({transfer_walk_minute} minutes)</h3>')
+        )
+
         for info in result:
-            result_file.write('{}\t{:%H:%M:%S}  ->  {}\t{:%H:%M:%S} (+{})\n'.format(
+            # set HTML <p> tag colors
+            if info['transfer_time_needed'] > timedelta(minutes=10) + transfer_walk_time:
+                # over 10 minutes + walk...
+                result_file.write('<p style="color:red">')   # Red
+            elif info['transfer_time_needed'] > timedelta(minutes=3) + transfer_walk_time:
+                # over 3 minutes + walk...
+                result_file.write('<p style="color:black">')   # Black
+            else:
+                # less 3 minutes + walk...
+                result_file.write('<p style="color:green">')    # Green
+
+            # write timeline
+            result_file.write('{}\t{:%H:%M:%S}  ->  {}\t{:%H:%M:%S} (+{})'.format(
                 info['before_transfer_train_bound'], info['before_transfer_train_time'],
                 info['after_transfer_train_bound'], info['after_transfer_train_time'],
                 info['transfer_time_needed']))
+
+            # end of <p> tag
+            result_file.write('</p>\n')
+
+        # Foot of HTML
+        result_file.write('</body>\n</html>\n')
+
+        # File close and finish
         result_file.close()
-        print('result.txt saved.')
+        print('result.html saved.')
 
 
 def read_timetable(filename):
