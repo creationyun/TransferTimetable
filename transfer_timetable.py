@@ -1,7 +1,8 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 ''' Transfer Timetable source code '''
 import sys
 from datetime import datetime, timedelta
+from colorama import init, Fore
 
 
 def main():
@@ -20,6 +21,7 @@ def main():
     transfer_walk_minute = float(sys.argv[3])
 
     # initial variables
+    init()  # colorama init
     timetable1 = []
     timetable1_info = {}
     timetable2 = []
@@ -68,13 +70,13 @@ def main():
         # set screen colors
         if info['transfer_time_needed'] > timedelta(minutes=10) + transfer_walk_time:
             # over 10 minutes + walk...
-            print('\033[38;5;160m', end='')   # Red
+            print(Fore.RED, end='')   # Red
         elif info['transfer_time_needed'] > timedelta(minutes=3) + transfer_walk_time:
             # over 3 minutes + walk...
-            print('\033[38;5;255m', end='')   # White
+            print(Fore.WHITE, end='')   # White
         else:
             # less 3 minutes + walk...
-            print('\033[38;5;40m', end='')    # Green
+            print(Fore.GREEN, end='')    # Green
 
         # print timeline
         print('{}\t{:%H:%M:%S}  ->  {}\t{:%H:%M:%S} (+{})'.format(
@@ -83,7 +85,7 @@ def main():
             info['transfer_time_needed']))
 
     # save result as a HTML file
-    print('\033[0m')   # reset color
+    print(Fore.RESET)   # reset color
     print('Do you want to create a HTML file to save (y/n)? ', end='')
     response = input()
     if response in ('Y', 'y'):

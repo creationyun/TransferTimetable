@@ -4,10 +4,11 @@ The program compares the timetables of two stations to derive a transit timetabl
 
 ## How to run
 
-This program is written in Python 3.x, so you need to install it.
+This program is written in Python 3.x, so you need to install it. (Virtual environment recommended)
 
 ```shell
-$ python timetable_transfer.py path/to/timetable1.txt path/to/timetable2.txt transfer_walk_minute
+$ pip install -r requirements.txt
+$ python transfer_timetable.py path/to/timetable1.txt path/to/timetable2.txt transfer_walk_minute
 ```
 
 After running, the execution result is obtained when you transfer from the station whose timetable is `timetable1.txt`, to the station whose timetable is `timetable2.txt` within `transfer_walk_minute` minutes. If you want, you can also save it as a file.
@@ -15,7 +16,7 @@ After running, the execution result is obtained when you transfer from the stati
 For example, if you run the following command:
 
 ```shell
-$ python timetable_transfer.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeongchun_chuncheon.txt 2.5
+$ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeongchun_chuncheon.txt 2.5
 ```
 
 A transfer timetable will be derived for when you arrive at Sinnae station on Line 6 and transfer on Gyeongchun Line for Chuncheon in 2.5 minutes.
@@ -80,10 +81,11 @@ Timetable directory structure is as follows:
 
 ## 실행 방법
 
-이 프로그램은 Python 3.x 으로 작성되어 있으므로, Python 설치가 필요합니다.
+이 프로그램은 Python 3.x 으로 작성되어 있으므로, Python 설치가 필요합니다. (Virtual environment 권장)
 
 ```shell
-$ python timetable_transfer.py path/to/timetable1.txt path/to/timetable2.txt transfer_walk_minute
+$ pip install -r requirements.txt
+$ python transfer_timetable.py path/to/timetable1.txt path/to/timetable2.txt transfer_walk_minute
 ```
 
 실행하면, 시간표가 `timetable1.txt`인 역에서 시간표가 `timetable2.txt`인 역으로 `transfer_walk_minute` 분 만에 환승했을 때의 실행 결과가 도출됩니다. 원하면 파일 저장도 가능합니다.
@@ -91,10 +93,10 @@ $ python timetable_transfer.py path/to/timetable1.txt path/to/timetable2.txt tra
 예를 들어, 다음 명령어를 실행하면:
 
 ```shell
-$ python timetable_transfer.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeongchun_chuncheon.txt 2.5
+$ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeongchun_chuncheon.txt 2.5
 ```
 
-6호선 신내역에 도착한 후 경춘선 춘천 방면으로 2.5분 만에 환승했을 때에 대한 환승 시간표가 도출됩니다.
+6호선 신내역에 도착한 후 경춘선 춘천 방면으로 2.5분 만에 환승했을 때의 환승 시간표가 도출됩니다.
 
 ## 시간표 파일 구조
 
@@ -159,3 +161,4 @@ $ python timetable_transfer.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 * Version 0.5.1: added more sample timetable files (Choji station).
 * Version 0.6: separated `README.md` into 2 sections in different languages, and changed result file type (TXT -> HTML).
 * Version 0.7: applied bootstrap 4.4 to the result file.
+* Version 0.7.1: added requirements.txt, and replaced UNIX coloring to colorama package (for OS compatibility)
