@@ -11,7 +11,7 @@ def main():
     argc = len(sys.argv) - 1
     if argc < 3:
         print(
-            ('Usage: ./timetable_transfer.py'
+            ('Usage: ./transfer_timetable.py'
              ' <timetable1.txt> <timetable2.txt> <transfer_walk_minute>')
         )
         sys.exit(1)
