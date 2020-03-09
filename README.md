@@ -1,4 +1,4 @@
-# TransferTimetable 0.7
+# TransferTimetable 0.7.1
 
 The program compares the timetables of two stations to derive a transit timetable.
 
@@ -75,7 +75,7 @@ Timetable directory structure is as follows:
     * `seohae_sosa.txt`: Seohae Line - For Sosa
     * `seohae_wonsi.txt`: Seohae Line - For Wonsi
 
-# 환승 시간표 0.7
+# 환승 시간표 0.7.1
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
