@@ -7,6 +7,10 @@ from colorama import init, Fore
 
 def main():
     """ Main Function """
+    if sys.version_info.major < 3:
+        print('This program supports Python 3 or higher.')
+        sys.exit(1)
+
     # read 2 file name arguments
     argc = len(sys.argv) - 1
     if argc < 3:
