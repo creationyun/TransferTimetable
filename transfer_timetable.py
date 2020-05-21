@@ -86,8 +86,7 @@ def main():
 
     # save result as a HTML file
     print(Fore.RESET)   # reset color
-    print('Do you want to create a HTML file to save (y/n)? ', end='')
-    response = raw_input()
+    response = input("Do you want to create a HTML file to save (y/n)? ")
     if response in ('Y', 'y'):
         write_html_file(result, timetable1_info,
                         timetable2_info, transfer_walk_time)
