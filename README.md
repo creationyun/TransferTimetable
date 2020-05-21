@@ -1,8 +1,8 @@
-# TransferTimetable 0.7.1
+# TransferTimetable 0.7.2
 
 The program compares the timetables of two stations to derive a transit timetable.
 
-## How to run
+## How To Run
 
 This program is written in Python 3.x, so you need to install it. (Virtual environment recommended)
 
@@ -21,7 +21,7 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 
 A transfer timetable will be derived for when you arrive at Sinnae station on Line 6 and transfer on Gyeongchun Line for Chuncheon in 2.5 minutes.
 
-## Structure of the timetable file
+## Internal Structure of the Timetable File
 
 The timetable file structure is a text file and you can write as follows.
 
@@ -46,11 +46,11 @@ The timetable file structure is a text file and you can write as follows.
      
 2. From the second line to the end, you can enter trains' destinations and arrival times.
 
-This program recognizes files as separated by spaces, so if they have spaces, enter them with underscores (_).
+This program recognizes the file contents as separated by spaces, so if they have spaces, enter them with underscores (_).
 
 If you want to look for several example files, please refer to the sample files listed below.
 
-## Sample timetable files
+## Sample Timetable Files
 
 Timetable directory structure is as follows:
 
@@ -75,7 +75,7 @@ Timetable directory structure is as follows:
     * `seohae_sosa.txt`: Seohae Line - For Sosa
     * `seohae_wonsi.txt`: Seohae Line - For Wonsi
 
-# 환승 시간표 0.7.1
+# 환승 시간표 0.7.2
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
@@ -98,7 +98,7 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 
 6호선 신내역에 도착한 후 경춘선 춘천 방면으로 2.5분 만에 환승했을 때의 환승 시간표가 도출됩니다.
 
-## 시간표 파일 구조
+## 시간표 파일 내부 구조
 
 시간표 파일 구조는 텍스트 파일이며, 다음과 같이 작성하시면 됩니다.
 
@@ -122,7 +122,7 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 
 2. 두 번째 줄부터 끝까지는 행선지와 도착 시간을 입력하시면 됩니다.
 
-이 프로그램은 파일을 띄어쓰기로 구분해서 인식하기 때문에, 띄어쓰기가 있을 경우 언더바(_)로 입력해주세요.
+이 프로그램은 파일 내용을 띄어쓰기로 구분해서 인식하기 때문에, 띄어쓰기가 있을 경우 언더바(_)로 입력해주세요.
 
 시간표 파일 예시를 확인하고 싶다면 아래에 나와 있는 샘플 파일들을 참고해주시기 바랍니다.
 
@@ -162,3 +162,5 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 * Version 0.6: separated `README.md` into 2 sections in different languages, and changed result file type (TXT -> HTML).
 * Version 0.7: applied bootstrap 4.4 to the result file.
 * Version 0.7.1: added requirements.txt, and replaced UNIX coloring to colorama package (for OS compatibility)
+* Version 0.7.2: patched vulnerability of input(), and added .idea (PyCharm) project settings
+

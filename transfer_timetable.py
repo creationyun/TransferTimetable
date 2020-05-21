@@ -6,7 +6,7 @@ from colorama import init, Fore
 
 
 def main():
-    ''' Main Function '''
+    """ Main Function """
     # read 2 file name arguments
     argc = len(sys.argv) - 1
     if argc < 3:
@@ -87,14 +87,14 @@ def main():
     # save result as a HTML file
     print(Fore.RESET)   # reset color
     print('Do you want to create a HTML file to save (y/n)? ', end='')
-    response = input()
+    response = raw_input()
     if response in ('Y', 'y'):
         write_html_file(result, timetable1_info,
                         timetable2_info, transfer_walk_time)
 
 
 def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time):
-    ''' Write Timetable to HTML '''
+    """ Write Timetable to HTML """
     result_file = open('result.html', 'w')
 
     # head of HTML
@@ -151,7 +151,7 @@ def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time
     for i, info in enumerate(result):
         # start of row
         result_file.write(
-            (f'<tr>\n<th scope="row">{i + 1}</th>\n')
+            f'<tr>\n<th scope="row">{i + 1}</th>\n'
         )
 
         # set HTML <p> tag colors
@@ -201,7 +201,7 @@ def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time
 
 
 def read_timetable(filename):
-    '''file -> make timetable array'''
+    """ file -> make timetable array """
     timetable = []
     timetable_info = {}
 
