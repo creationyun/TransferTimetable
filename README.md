@@ -139,8 +139,8 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 
 * imae: 이매역
   * weekday: 평일, saturday: 토요일, sunday_holiday: 일요일/공휴일
-    * `bundang_wangsimni.txt`: 분당선 왕십리 방면
-    * `bundang_suwon.txt`: 분당선 수원 방면
+    * `suinbundang_wangsimni.txt`: 수인·분당선 왕십리 방면
+    * `suinbundang_incheon.txt`: 수인·분당선 인천 방면
     * `gyeonggang_pangyo.txt`: 경강선 판교 방면
     * `gyeonggang_yeoju.txt`: 경강선 여주 방면
 
