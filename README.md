@@ -1,4 +1,4 @@
-# TransferTimetable 0.7.2
+# TransferTimetable 0.7.3
 
 The program compares the timetables of two stations to derive a transit timetable.
 
@@ -75,7 +75,7 @@ Timetable directory structure is as follows:
     * `seohae_sosa.txt`: Seohae Line - For Sosa
     * `seohae_wonsi.txt`: Seohae Line - For Wonsi
 
-# 환승 시간표 0.7.2
+# 환승 시간표 0.7.3
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
@@ -163,4 +163,5 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 * Version 0.7: applied bootstrap 4.4 to the result file.
 * Version 0.7.1: added requirements.txt, and replaced UNIX coloring to colorama package (for OS compatibility)
 * Version 0.7.2: patched vulnerability of input(), and added .idea (PyCharm) project settings
+* Version 0.7.3: specified encoding='UTF8'
 
