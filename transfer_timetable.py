@@ -98,7 +98,7 @@ def main():
 
 def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time):
     """ Write Timetable to HTML """
-    result_file = open('result.html', 'w')
+    result_file = open('result.html', 'w', encoding='UTF8')
 
     # head of HTML
     result_file.write(
@@ -209,7 +209,7 @@ def read_timetable(filename):
     timetable_info = {}
 
     # load info
-    timetable_file = open(filename, 'r')
+    timetable_file = open(filename, 'r', encoding='UTF8')
     timetable_info['station'], timetable_info['line'], timetable_info[
         'week'], timetable_info['direction'] = timetable_file.readline().split()
 
