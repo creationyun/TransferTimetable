@@ -43,7 +43,7 @@ The timetable file structure is a text file and you can write as follows.
      + It is recommended to enter Sunday/Holiday together in the [Weekday/Saturday/Sunday/Holiday] field.
    + Direction of train: choose up or down
      + If you are unsure, you can also enter a representative (bound for) destination, such as For_Aldgate.
-     
+   
 2. From the second line to the end, you can enter trains' destinations and arrival times.
 
 This program recognizes the file contents as separated by spaces, so if they have spaces, enter them with underscores (_).
@@ -63,8 +63,8 @@ Timetable directory structure is as follows:
 
 * imae: Seoul Metropolitan Subway - Imae station
   * weekday, saturday, sunday_holiday (Sunday and Holiday)
-    * `bundang_wangsimni.txt`: KORAIL Bundang Line - For Wangsimni
-    * `bundang_suwon.txt`: KORAIL Bundang Line - For Suwon
+    * `suinbundang_wangsimni.txt`: KORAIL Suin·Bundang Line - For Wangsimni
+    * `suinbundang_incheon.txt`: KORAIL Suin·Bundang Line - For Incheon
     * `gyeonggang_pangyo.txt`: KORAIL Gyeonggang Line - For Pangyo
     * `gyeonggang_yeoju.txt`: KORAIL Gyeonggang Line - For Yeoju
 
