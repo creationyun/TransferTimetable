@@ -74,6 +74,8 @@ Timetable directory structure is as follows:
     * `4_oido.txt`: Seoul Metro/KORAIL Line 4 - For Oido
     * `seohae_sosa.txt`: Seohae Line - For Sosa
     * `seohae_wonsi.txt`: Seohae Line - For Wonsi
+    * `suinbundang_wangsimni.txt`: KORAIL Suin·Bundang Line - For Wangsimni
+    * `suinbundang_incheon.txt`: KORAIL Suin·Bundang Line - For Incheon
 
 # 환승 시간표 0.7.3
 
@@ -150,6 +152,8 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
     * `4_oido.txt`: 4호선 오이도 방면
     * `seohae_sosa.txt`: 서해선 소사 방면
     * `seohae_wonsi.txt`: 서해선 원시 방면
+    * `suinbundang_wangsimni.txt`: 수인·분당선 왕십리 방면
+    * `suinbundang_incheon.txt`: 수인·분당선 인천 방면
 
 ## 수정 내역 (Revision history)
 
