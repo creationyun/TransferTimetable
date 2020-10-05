@@ -60,14 +60,12 @@ Timetable directory structure is as follows:
     * `6_sinnae.txt`: Seoul Metro Line 6 - Sinnae arrival
     * `gyeongchun_cheongnyangni.txt`: KORAIL Gyeongchun Line - For Sangbong or Cheongnyangni
     * `gyeongchun_chuncheon.txt`: KORAIL Gyeongchun Line - For Chuncheon
-
 * imae: Seoul Metropolitan Subway - Imae station
   * weekday, saturday, sunday_holiday (Sunday and Holiday)
     * `suinbundang_wangsimni.txt`: KORAIL Suin·Bundang Line - For Wangsimni
     * `suinbundang_incheon.txt`: KORAIL Suin·Bundang Line - For Incheon
     * `gyeonggang_pangyo.txt`: KORAIL Gyeonggang Line - For Pangyo
     * `gyeonggang_yeoju.txt`: KORAIL Gyeonggang Line - For Yeoju
-
 * choji: Seoul Metropolitan Subway - Choji station
   * weekday, saturday, sunday_holiday (Sunday and Holiday)
     * `4_danggogae.txt`: Seoul Metro/KORAIL Line 4 - For Danggogae
@@ -76,6 +74,12 @@ Timetable directory structure is as follows:
     * `seohae_wonsi.txt`: Seohae Line - For Wonsi
     * `suinbundang_wangsimni.txt`: KORAIL Suin·Bundang Line - For Wangsimni
     * `suinbundang_incheon.txt`: KORAIL Suin·Bundang Line - For Incheon
+* daegok: Seoul Metropolitan Subway - Daegok station
+  * weekday, saturday, sunday_holiday (Sunday and Holiday)
+    * `3_daehwa.txt`: Seoul Metro/KORAIL Line 3 - For Daehwa
+    * `3_ogeum.txt`: Seoul Metro/KORAIL Line 3 - For Ogeum
+    * `gyeonguijungang_munsan.txt`: KORAIL Gyeongui·Jungang Line - For Munsan
+    * `gyeonguijungang_seoul_yongmun.txt`: KORAIL Gyeongui·Jungang Line - For Yongmun or Seoul station
 
 # 환승 시간표 0.7.3
 
@@ -138,14 +142,12 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
     * `6_sinnae.txt`: 6호선 신내 도착
     * `gyeongchun_cheongnyangni.txt`: 경춘선 상봉/청량리 방면
     * `gyeongchun_chuncheon.txt`: 경춘선 춘천 방면
-
 * imae: 이매역
   * weekday: 평일, saturday: 토요일, sunday_holiday: 일요일/공휴일
     * `suinbundang_wangsimni.txt`: 수인·분당선 왕십리 방면
     * `suinbundang_incheon.txt`: 수인·분당선 인천 방면
     * `gyeonggang_pangyo.txt`: 경강선 판교 방면
     * `gyeonggang_yeoju.txt`: 경강선 여주 방면
-
 * choji: 초지역
   * weekday: 평일, saturday: 토요일, sunday_holiday: 일요일/공휴일
     * `4_danggogae.txt`: 4호선 당고개 방면
@@ -154,6 +156,12 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
     * `seohae_wonsi.txt`: 서해선 원시 방면
     * `suinbundang_wangsimni.txt`: 수인·분당선 왕십리 방면
     * `suinbundang_incheon.txt`: 수인·분당선 인천 방면
+* daegok: 대곡역
+  * weekday: 평일, saturday: 토요일, sunday_holiday: 일요일/공휴일
+    * `3_daehwa.txt`: 3호선 대화 방면
+    * `3_ogeum.txt`: 3호선 오금 방면
+    * `gyeonguijungang_munsan.txt`: 경의중앙선 문산 방면
+    * `gyeonguijungang_seoul_yongmun.txt`: 경의중앙선 용문/서울역 방면
 
 ## 수정 내역 (Revision history)
 
