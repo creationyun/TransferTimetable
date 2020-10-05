@@ -1,10 +1,10 @@
-# TransferTimetable 0.7.3
+# TransferTimetable 0.8
 
 The program compares the timetables of two stations to derive a transit timetable.
 
 ## How To Run
 
-This program is written in Python 3.x, so you need to install it. (Virtual environment recommended)
+This program is written in Python 3.x, so you need to install Anaconda or Python. (Virtual environment recommended)
 
 ```shell
 $ pip install -r requirements.txt
@@ -81,13 +81,13 @@ Timetable directory structure is as follows:
     * `gyeonguijungang_munsan.txt`: KORAIL Gyeongui·Jungang Line - For Munsan
     * `gyeonguijungang_seoul_yongmun.txt`: KORAIL Gyeongui·Jungang Line - For Yongmun or Seoul station
 
-# 환승 시간표 0.7.3
+# 환승 시간표 0.8
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
 ## 실행 방법
 
-이 프로그램은 Python 3.x 으로 작성되어 있으므로, Python 설치가 필요합니다. (Virtual environment 권장)
+이 프로그램은 Python 3.x 으로 작성되어 있으므로, Anaconda 혹은 Python 설치가 필요합니다. (Virtual environment 권장)
 
 ```shell
 $ pip install -r requirements.txt
@@ -176,4 +176,5 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 * Version 0.7.1: added requirements.txt, and replaced UNIX coloring to colorama package (for OS compatibility)
 * Version 0.7.2: patched vulnerability of input(), and added .idea (PyCharm) project settings
 * Version 0.7.3: specified encoding='UTF8'
+* Version 0.8: applied a code that filters destination's terminal train
 

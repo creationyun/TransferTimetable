@@ -38,7 +38,7 @@ def main():
 
     # # second file
     # load info
-    timetable2, timetable2_info = read_timetable(filename2)
+    timetable2, timetable2_info = read_timetable(filename2, allow_terminal=False)
 
     # comparison station1 -> station2
     print('Transfer Timetable Result')
@@ -203,7 +203,7 @@ def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time
     print('result.html saved.')
 
 
-def read_timetable(filename):
+def read_timetable(filename, allow_terminal=True):
     """ file -> make timetable array """
     timetable = []
     timetable_info = {}
@@ -225,6 +225,23 @@ def read_timetable(filename):
         hour = int(timesplit[0])
         minute = int(timesplit[1])
         second = int(timesplit[2])
+        
+        # filtering terminal
+        if not allow_terminal:
+            if timetable_info['station'] == bound_for:
+                continue
+            elif timetable_info['station'][-1:] == '역':
+                if timetable_info['station'][:-1] == bound_for:
+                    continue
+            elif len(timetable_info['station']) <= 7:
+                continue
+            elif timetable_info['station'][-7:].lower() == 'station':
+                if timetable_info['station'][:-7].lower() == bound_for.lower():
+                    continue
+                elif timetable_info['station'][-8] == '_':
+                    if timetable_info['station'][:-8].lower() == bound_for.lower():
+                        continue
+            
         timetable.append({
             'bound_for': bound_for,
             'time': datetime(2020, 1, 1+hour//24, hour % 24, minute, second)
