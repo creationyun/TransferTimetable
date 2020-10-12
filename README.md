@@ -80,6 +80,12 @@ Timetable directory structure is as follows:
     * `3_ogeum.txt`: Seoul Metro/KORAIL Line 3 - For Ogeum
     * `gyeonguijungang_munsan.txt`: KORAIL Gyeongui·Jungang Line - For Munsan
     * `gyeonguijungang_seoul_yongmun.txt`: KORAIL Gyeongui·Jungang Line - For Yongmun or Seoul station
+* olympic_park: Seoul Metropolitan Subway - Olympic Park station
+  * weekday
+    * `5_banghwa.txt`: Seoul Metro Line 5 - For Banghwa
+    * `5_macheon.txt`: Seoul Metro Line 5 - For Macheon
+    * `9_gaehwa.txt`: Seoul Metro Line 9 - For Gaehwa/Gimpo Int'l Airport
+    * `9_vhs_medical_center.txt`: Seoul Metro Line 9 - For VHS Medical Center
 
 # 환승 시간표 0.8
 
@@ -162,6 +168,12 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
     * `3_ogeum.txt`: 3호선 오금 방면
     * `gyeonguijungang_munsan.txt`: 경의중앙선 문산 방면
     * `gyeonguijungang_seoul_yongmun.txt`: 경의중앙선 용문/서울역 방면
+* olympic_park: 올림픽공원역
+  * weekday: 평일
+    * `5_banghwa.txt`: 5호선 방화 방면
+    * `5_macheon.txt`: 5호선 마천 방면
+    * `9_gaehwa.txt`: 9호선 개화/김포공항 방면
+    * `9_vhs_medical_center.txt`: 9호선 중앙보훈병원 방면
 
 ## 수정 내역 (Revision history)
 
