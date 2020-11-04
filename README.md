@@ -1,4 +1,4 @@
-# TransferTimetable 0.8
+# TransferTimetable 1.0
 
 The program compares the timetables of two stations to derive a transit timetable.
 
@@ -87,7 +87,7 @@ Timetable directory structure is as follows:
     * `9_gaehwa.txt`: Seoul Metro Line 9 - For Gaehwa/Gimpo Int'l Airport
     * `9_vhs_medical_center.txt`: Seoul Metro Line 9 - For VHS Medical Center
 
-# 환승 시간표 0.8
+# 환승 시간표 1.0
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
@@ -189,4 +189,5 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 * Version 0.7.2: patched vulnerability of input(), and added .idea (PyCharm) project settings
 * Version 0.7.3: specified encoding='UTF8'
 * Version 0.8: applied a code that filters destination's terminal train
+* Version 1.0: applied \<div class = row, col\> tags, upgraded bootstrap 4.4.1 to 4.5.3
 

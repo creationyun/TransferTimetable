@@ -104,17 +104,17 @@ def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time
     result_file.write(
         ('<!DOCTYPE html>\n<html>\n<head>\n<meta charset="utf-8">\n'
          '<link rel="stylesheet" '
-         'href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" '
-         'integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" '
+         'href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" '
+         'integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" '
          'crossorigin="anonymous">\n'
-         '<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" '
-         'integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" '
+         '<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" '
+         'integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" '
          'crossorigin="anonymous"></script>\n'
-         '<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" '
-         'integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" '
+         '<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" '
+         'integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" '
          'crossorigin="anonymous"></script>\n'
-         '<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" '
-         'integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" '
+         '<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" '
+         'integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" '
          'crossorigin="anonymous"></script>\n'
          '<style>th {text-align:center;} '
          'td {text-align:center;} '
@@ -126,6 +126,7 @@ def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time
     # body of HTML (title)
     result_file.write(
         ('<body>\n<div class="container-fluid">\n'
+         '<div class="row">\n<div class="col-md-12">\n'
          f'<h3>{timetable1_info["station"]} {timetable1_info["line"]}'
          f' ({timetable1_info["week"]}, {timetable1_info["direction"]})'
          f' -> {timetable2_info["station"]} {timetable2_info["line"]}'
@@ -196,7 +197,13 @@ def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time
         result_file.write('</tr>\n')
 
     # foot of HTML
-    result_file.write('</tbody>\n</table>\n</div>\n</body>\n</html>\n')
+    result_file.write(
+        (
+            '</tbody>\n</table>\n'
+            '</div>\n</div>\n</div>\n'
+            '</body>\n</html>\n'
+        )
+    )
 
     # file close and finish
     result_file.close()
