@@ -1,4 +1,4 @@
-# TransferTimetable 1.0
+# TransferTimetable 1.0.1
 
 The program compares the timetables of two stations to derive a transit timetable.
 
@@ -61,13 +61,13 @@ Timetable directory structure is as follows:
     * `gyeongchun_cheongnyangni.txt`: KORAIL Gyeongchun Line - For Sangbong or Cheongnyangni
     * `gyeongchun_chuncheon.txt`: KORAIL Gyeongchun Line - For Chuncheon
 * imae: Seoul Metropolitan Subway - Imae station
-  * weekday, saturday, sunday_holiday (Sunday and Holiday)
+  * weekday, weekend_holiday (Saturday, Sunday and Holiday)
     * `suinbundang_wangsimni.txt`: KORAIL Suin·Bundang Line - For Wangsimni
     * `suinbundang_incheon.txt`: KORAIL Suin·Bundang Line - For Incheon
     * `gyeonggang_pangyo.txt`: KORAIL Gyeonggang Line - For Pangyo
     * `gyeonggang_yeoju.txt`: KORAIL Gyeonggang Line - For Yeoju
 * choji: Seoul Metropolitan Subway - Choji station
-  * weekday, saturday, sunday_holiday (Sunday and Holiday)
+  * weekday, weekend_holiday (Saturday, Sunday and Holiday)
     * `4_danggogae.txt`: Seoul Metro/KORAIL Line 4 - For Danggogae
     * `4_oido.txt`: Seoul Metro/KORAIL Line 4 - For Oido
     * `seohae_sosa.txt`: Seohae Line - For Sosa
@@ -75,19 +75,19 @@ Timetable directory structure is as follows:
     * `suinbundang_wangsimni.txt`: KORAIL Suin·Bundang Line - For Wangsimni
     * `suinbundang_incheon.txt`: KORAIL Suin·Bundang Line - For Incheon
 * daegok: Seoul Metropolitan Subway - Daegok station
-  * weekday, saturday, sunday_holiday (Sunday and Holiday)
+  * weekday, weekend_holiday (Saturday, Sunday and Holiday)
     * `3_daehwa.txt`: Seoul Metro/KORAIL Line 3 - For Daehwa
     * `3_ogeum.txt`: Seoul Metro/KORAIL Line 3 - For Ogeum
     * `gyeonguijungang_munsan.txt`: KORAIL Gyeongui·Jungang Line - For Munsan
     * `gyeonguijungang_seoul_yongmun.txt`: KORAIL Gyeongui·Jungang Line - For Yongmun or Seoul station
 * olympic_park: Seoul Metropolitan Subway - Olympic Park station
-  * weekday, saturday, sunday_holiday (Sunday and Holiday)
+  * weekday, weekend_holiday (Saturday, Sunday and Holiday)
     * `5_banghwa.txt`: Seoul Metro Line 5 - For Banghwa
     * `5_macheon.txt`: Seoul Metro Line 5 - For Macheon
     * `9_gaehwa.txt`: Seoul Metro Line 9 - For Gaehwa/Gimpo Int'l Airport
     * `9_vhs_medical_center.txt`: Seoul Metro Line 9 - For VHS Medical Center
 
-# 환승 시간표 1.0
+# 환승 시간표 1.0.1
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
@@ -149,13 +149,13 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
     * `gyeongchun_cheongnyangni.txt`: 경춘선 상봉/청량리 방면
     * `gyeongchun_chuncheon.txt`: 경춘선 춘천 방면
 * imae: 이매역
-  * weekday: 평일, saturday: 토요일, sunday_holiday: 일요일/공휴일
+  * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
     * `suinbundang_wangsimni.txt`: 수인·분당선 왕십리 방면
     * `suinbundang_incheon.txt`: 수인·분당선 인천 방면
     * `gyeonggang_pangyo.txt`: 경강선 판교 방면
     * `gyeonggang_yeoju.txt`: 경강선 여주 방면
 * choji: 초지역
-  * weekday: 평일, saturday: 토요일, sunday_holiday: 일요일/공휴일
+  * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
     * `4_danggogae.txt`: 4호선 당고개 방면
     * `4_oido.txt`: 4호선 오이도 방면
     * `seohae_sosa.txt`: 서해선 소사 방면
@@ -163,13 +163,13 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
     * `suinbundang_wangsimni.txt`: 수인·분당선 왕십리 방면
     * `suinbundang_incheon.txt`: 수인·분당선 인천 방면
 * daegok: 대곡역
-  * weekday: 평일, saturday: 토요일, sunday_holiday: 일요일/공휴일
+  * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
     * `3_daehwa.txt`: 3호선 대화 방면
     * `3_ogeum.txt`: 3호선 오금 방면
     * `gyeonguijungang_munsan.txt`: 경의중앙선 문산 방면
     * `gyeonguijungang_seoul_yongmun.txt`: 경의중앙선 용문/서울역 방면
 * olympic_park: 올림픽공원역
-  * weekday: 평일, saturday: 토요일, sunday_holiday: 일요일/공휴일
+  * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
     * `5_banghwa.txt`: 5호선 방화 방면
     * `5_macheon.txt`: 5호선 마천 방면
     * `9_gaehwa.txt`: 9호선 개화/김포공항 방면
@@ -190,4 +190,5 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 * Version 0.7.3: specified encoding='UTF8'
 * Version 0.8: applied a code that filters destination's terminal train
 * Version 1.0: applied \<div class = row, col\> tags, upgraded bootstrap 4.4.1 to 4.5.3
+* Version 1.0.1: integrated saturday + sunday_holiday to weekend_holiday (except Sinnae station), and applied big timetable update due to COVID-19 pandemic
 
