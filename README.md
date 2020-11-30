@@ -1,4 +1,6 @@
-# TransferTimetable 1.0.1
+# TransferTimetable 1.0.2
+
+![Python application](https://github.com/creationyun/TransferTimetable/workflows/Python%20application/badge.svg)
 
 The program compares the timetables of two stations to derive a transit timetable.
 
@@ -86,8 +88,14 @@ Timetable directory structure is as follows:
     * `5_macheon.txt`: Seoul Metro Line 5 - For Macheon
     * `9_gaehwa.txt`: Seoul Metro Line 9 - For Gaehwa/Gimpo Int'l Airport
     * `9_vhs_medical_center.txt`: Seoul Metro Line 9 - For VHS Medical Center
+* sosa: Seoul Metropolitan Subway - Sosa station
+  * weekday, weekend_holiday (Saturday, Sunday and Holiday)
+    * `1_soyosan.txt`: Seoul Metro/KORAIL Line 1 - For Soyosan
+    * `1_incheon.txt`: Seoul Metro/KORAIL Line 1 - For Incheon
+    * `seohae_sosa.txt`: Seohae Line - Sosa arrival
+    * `seohae_wonsi.txt`: Seohae Line - For Wonsi
 
-# 환승 시간표 1.0.1
+# 환승 시간표 1.0.2
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
@@ -174,6 +182,12 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
     * `5_macheon.txt`: 5호선 마천 방면
     * `9_gaehwa.txt`: 9호선 개화/김포공항 방면
     * `9_vhs_medical_center.txt`: 9호선 중앙보훈병원 방면
+* sosa: 소사역
+  * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
+    * `1_soyosan.txt`: 1호선 소요산 방면
+    * `1_incheon.txt`: 1호선 인천 방면
+    * `seohae_sosa.txt`: 서해선 소사 도착
+    * `seohae_wonsi.txt`: 서해선 원시 방면
 
 ## 수정 내역 (Revision history)
 
@@ -191,4 +205,5 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 * Version 0.8: applied a code that filters destination's terminal train
 * Version 1.0: applied \<div class = row, col\> tags, upgraded bootstrap 4.4.1 to 4.5.3
 * Version 1.0.1: integrated saturday + sunday_holiday to weekend_holiday (except Sinnae station), and applied big timetable update due to COVID-19 pandemic
+* Version 1.0.2: added banner in README and Sosa station timetable sample
 
