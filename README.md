@@ -1,4 +1,4 @@
-# TransferTimetable 1.0.2
+# TransferTimetable 1.0.3
 
 ![Python application](https://github.com/creationyun/TransferTimetable/workflows/Python%20application/badge.svg)
 
@@ -97,7 +97,7 @@ Timetable directory structure is as follows:
     * `seohae_sosa.txt`: Seohae Line - Sosa arrival
     * `seohae_wonsi.txt`: Seohae Line - For Wonsi
 
-# 환승 시간표 1.0.2
+# 환승 시간표 1.0.3
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
