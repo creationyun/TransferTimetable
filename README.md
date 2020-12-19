@@ -86,8 +86,10 @@ Timetable directory structure is as follows:
   * weekday, weekend_holiday (Saturday, Sunday and Holiday)
     * `5_banghwa.txt`: Seoul Metro Line 5 - For Banghwa
     * `5_macheon.txt`: Seoul Metro Line 5 - For Macheon
-    * `9_gaehwa.txt`: Seoul Metro Line 9 - For Gaehwa/Gimpo Int'l Airport
-    * `9_vhs_medical_center.txt`: Seoul Metro Line 9 - For VHS Medical Center
+    * `9a_gaehwa.txt`: Seoul Metro Line 9 - For Gaehwa (All stop train)
+    * `9e_gimpo_intl_airport.txt`: Seoul Metro Line 9 - For Gimpo International Airport (Express train)
+    * `9a_vhs_medical_center.txt`: Seoul Metro Line 9 - For VHS Medical Center (All stop train)
+    * `9e_vhs_medical_center.txt`: Seoul Metro Line 9 - For VHS Medical Center (Express train)
 * sosa: Seoul Metropolitan Subway - Sosa station
   * weekday, weekend_holiday (Saturday, Sunday and Holiday)
     * `1_soyosan.txt`: Seoul Metro/KORAIL Line 1 - For Soyosan
@@ -180,8 +182,10 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
   * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
     * `5_banghwa.txt`: 5호선 방화 방면
     * `5_macheon.txt`: 5호선 마천 방면
-    * `9_gaehwa.txt`: 9호선 개화/김포공항 방면
-    * `9_vhs_medical_center.txt`: 9호선 중앙보훈병원 방면
+    * `9a_gaehwa.txt`: 9호선 개화 방면 (일반열차)
+    * `9e_gimpo_intl_airport.txt`: 9호선 김포공항 방면 (급행열차)
+    * `9a_vhs_medical_center.txt`: 9호선 중앙보훈병원 방면 (일반열차)
+    * `9e_vhs_medical_center.txt`: 9호선 중앙보훈병원 방면 (급행열차)
 * sosa: 소사역
   * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
     * `1_soyosan.txt`: 1호선 소요산 방면
@@ -206,4 +210,5 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 * Version 1.0: applied \<div class = row, col\> tags, upgraded bootstrap 4.4.1 to 4.5.3
 * Version 1.0.1: integrated saturday + sunday_holiday to weekend_holiday (except Sinnae station), and applied big timetable update due to COVID-19 pandemic
 * Version 1.0.2: added banner in README and Sosa station timetable sample
+* Version 1.0.3: separated all stop and express train in Line 9
 
