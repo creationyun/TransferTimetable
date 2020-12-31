@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
-''' Transfer Timetable source code '''
+""" Transfer Timetable source code """
 import sys
 from datetime import datetime, timedelta
 from colorama import init, Fore
 
 
 def main():
-    """ Main Function """
+    """
+    Main function when running
+    """
     if sys.version_info.major < 3:
         print('This program supports Python 3 or higher.')
-        sys.exit(1)
+        return
 
     # read 2 file name arguments
     argc = len(sys.argv) - 1
@@ -18,7 +20,7 @@ def main():
             ('Usage: ./transfer_timetable.py'
              ' <timetable1.txt> <timetable2.txt> <transfer_walk_minute>')
         )
-        sys.exit(1)
+        return
 
     filename1 = sys.argv[1]
     filename2 = sys.argv[2]
@@ -26,10 +28,6 @@ def main():
 
     # initial variables
     init()  # colorama init
-    timetable1 = []
-    timetable1_info = {}
-    timetable2 = []
-    timetable2_info = {}
     transfer_walk_time = timedelta(minutes=transfer_walk_minute)
 
     # # first file -> make timetable array
@@ -50,36 +48,16 @@ def main():
          f' ({transfer_walk_minute} minutes)')
     )
     print()
-    i = 0
-    j = 0
-    result = []
-    while i < len(timetable1) and j < len(timetable2):
-        # test if the [time1 + walk] and time2
-        if timetable1[i]['time'] + transfer_walk_time <= timetable2[j]['time']:
-            # transfer possible
-            result.append({
-                'before_transfer_train_bound': timetable1[i]['bound_for'],
-                'after_transfer_train_bound': timetable2[j]['bound_for'],
-                'before_transfer_train_time': timetable1[i]['time'],
-                'after_transfer_train_time': timetable2[j]['time'],
-                'transfer_time_needed': timetable2[j]['time'] - timetable1[i]['time']
-            })
-            i += 1
-        else:
-            # transfer impossible
-            j += 1
+    result = derive_transfer_timetable(timetable1, timetable2, transfer_walk_time)
 
     # print result
     for info in result:
-        # set screen colors
-        if info['transfer_time_needed'] > timedelta(minutes=10) + transfer_walk_time:
-            # over 10 minutes + walk...
+        # set screen colors by degree
+        if info['transfer_time_degree'] == 'high':
             print(Fore.RED, end='')   # Red
-        elif info['transfer_time_needed'] > timedelta(minutes=3) + transfer_walk_time:
-            # over 3 minutes + walk...
+        elif info['transfer_time_degree'] == 'middle':
             print(Fore.WHITE, end='')   # White
         else:
-            # less 3 minutes + walk...
             print(Fore.GREEN, end='')    # Green
 
         # print timeline
@@ -92,13 +70,65 @@ def main():
     print(Fore.RESET)   # reset color
     response = input("Do you want to create a HTML file to save (y/n)? ")
     if response in ('Y', 'y'):
-        write_html_file(result, timetable1_info,
+        write_html_file('result.html', result, timetable1_info,
                         timetable2_info, transfer_walk_time)
 
 
-def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time):
-    """ Write Timetable to HTML """
-    result_file = open('result.html', 'w', encoding='UTF8')
+def derive_transfer_timetable(timetable1, timetable2, transfer_walk_time: timedelta):
+    """
+    Make the transfer (connection) timetable using 2 timetables and walking time.
+
+    :param timetable1: a station timetable before transfer
+    :param timetable2: a station timetable after transfer
+    :param transfer_walk_time: estimated walking time to transfer (only allows timedelta type)
+    :return: array of dictionaries containing each of the possible transfers
+    """
+    i = 0
+    j = 0
+    result = []
+    while i < len(timetable1) and j < len(timetable2):
+        # test if the [time1 + walk] and time2
+        if timetable1[i]['time'] + transfer_walk_time <= timetable2[j]['time']:
+            # transfer possible
+            info = {
+                'before_transfer_train_bound': timetable1[i]['bound_for'],
+                'after_transfer_train_bound': timetable2[j]['bound_for'],
+                'before_transfer_train_time': timetable1[i]['time'],
+                'after_transfer_train_time': timetable2[j]['time'],
+                'transfer_time_needed': timetable2[j]['time'] - timetable1[i]['time'],
+                'transfer_time_degree': None
+            }
+
+            if info['transfer_time_needed'] > timedelta(minutes=10) + transfer_walk_time:
+                # over 10 minutes + walk...
+                info['transfer_time_degree'] = 'high'
+            elif info['transfer_time_needed'] > timedelta(minutes=3) + transfer_walk_time:
+                # over 3 minutes + walk...
+                info['transfer_time_degree'] = 'middle'
+            else:
+                # less 3 minutes + walk...
+                info['transfer_time_degree'] = 'low'
+
+            result.append(info)
+            i += 1
+        else:
+            # transfer impossible
+            j += 1
+
+    return result
+
+
+def write_html_file(filepath, result, timetable1_info, timetable2_info, transfer_walk_time):
+    """
+    Write transfer timetable to HTML
+
+    :param filepath: file name (and its parent directory) to save html file
+    :param result: result of derived transfer timetable
+    :param timetable1_info: information of timetable before transfer
+    :param timetable2_info: information of timetable after transfer
+    :param transfer_walk_time: estimated walking time to transfer (only allows timedelta type)
+    """
+    result_file = open(filepath, 'w', encoding='UTF8')
 
     # head of HTML
     result_file.write(
@@ -159,8 +189,8 @@ def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time
         )
 
         # set HTML <p> tag colors
-        if info['transfer_time_needed'] > timedelta(minutes=10) + transfer_walk_time:
-            # over 10 minutes + walk... => Red
+        if info['transfer_time_degree'] == 'high':
+            # Red
             result_file.write(
                 (f'<td><p style="color:red">{info["before_transfer_train_bound"]}</p></td>\n'
                  '<td><p style="color:red">'
@@ -170,8 +200,8 @@ def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time
                  f'{"{:%H:%M:%S}".format(info["after_transfer_train_time"])}</p></td>\n'
                  f'<td><p style="color:red">+{info["transfer_time_needed"]}</p></td>\n')
             )
-        elif info['transfer_time_needed'] > timedelta(minutes=3) + transfer_walk_time:
-            # over 3 minutes + walk... => Black
+        elif info['transfer_time_degree'] == 'middle':
+            # Black
             result_file.write(
                 (f'<td><p style="color:black">{info["before_transfer_train_bound"]}</p></td>\n'
                  '<td><p style="color:black">'
@@ -182,7 +212,7 @@ def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time
                  f'<td><p style="color:black">+{info["transfer_time_needed"]}</p></td>\n')
             )
         else:
-            # less 3 minutes + walk... => Green
+            # Green
             result_file.write(
                 (f'<td><p style="color:green">{info["before_transfer_train_bound"]}</p></td>\n'
                  '<td><p style="color:green">'
@@ -207,11 +237,17 @@ def write_html_file(result, timetable1_info, timetable2_info, transfer_walk_time
 
     # file close and finish
     result_file.close()
-    print('result.html saved.')
+    print(f'{filepath} saved.')
 
 
 def read_timetable(filename, allow_terminal=True):
-    """ file -> make timetable array """
+    """
+    Read timetable file and its information
+
+    :param filename: file name you want to read as timetable
+    :param allow_terminal: with or without filtering trains arriving terminal
+    :return: timetable list and information
+    """
     timetable = []
     timetable_info = {}
 

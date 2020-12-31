@@ -1,4 +1,4 @@
-# TransferTimetable 1.0.3
+# TransferTimetable 1.1
 
 ![Python application](https://github.com/creationyun/TransferTimetable/workflows/Python%20application/badge.svg)
 
@@ -97,7 +97,32 @@ Timetable directory structure is as follows:
     * `seohae_sosa.txt`: Seohae Line - Sosa arrival
     * `seohae_wonsi.txt`: Seohae Line - For Wonsi
 
-# 환승 시간표 1.0.3
+## Use as Library
+
+You can use it as python library.
+
+It provides 3 functions to get timetables and transfer timetables.
+
++ `read_timetable()`: read timetable file and its information
++ `derive_transfer_timetable()`: make transfer timetable using 2 timetables
++ `write_html_file()`: write HTML file using transfer timetable and its information
+
+### Code Example
+
+```python
+from TransferTimetable import transfer_timetable as tt
+from datetime import timedelta
+
+before, before_info = tt.read_timetable("TransferTimetable/sinnae/weekday/6_sinnae.txt")  # before transfer
+after, after_info = tt.read_timetable("TransferTimetable/sinnae/weekday/gyeongchun_chuncheon.txt", allow_terminal=False)  # after transfer
+walk_time = timedelta(minutes=3)  # 3 minutes
+
+result = tt.derive_transfer_timetable(before, after, walk_time)  # make transfer timetable
+
+tt.write_html_file('timetable_result.html', result, before_info, after_info, walk_time)  # convert to HTML file
+```
+
+# 환승 시간표 1.1
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
@@ -193,6 +218,31 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
     * `seohae_sosa.txt`: 서해선 소사 도착
     * `seohae_wonsi.txt`: 서해선 원시 방면
 
+## 라이브러리로 사용
+
+이 프로그램은 Python library로도 사용 가능합니다.
+
+시간표와 환승 시간표를 얻을 수 있는 3가지 기능을 제공합니다.
+
++ `read_timetable()`: 시간표 파일과 시간표 정보 읽기
++ `derive_transfer_timetable()`: 2개의 시간표로부터 환승 시간표 만들기
++ `write_html_file()`: 환승 시간표와 관련 정보로 HTML 파일 생성
+
+### 코드 예시
+
+```python
+from TransferTimetable import transfer_timetable as tt
+from datetime import timedelta
+
+before, before_info = tt.read_timetable("TransferTimetable/sinnae/weekday/6_sinnae.txt")  # before transfer
+after, after_info = tt.read_timetable("TransferTimetable/sinnae/weekday/gyeongchun_chuncheon.txt", allow_terminal=False)  # after transfer
+walk_time = timedelta(minutes=3)  # 3 minutes
+
+result = tt.derive_transfer_timetable(before, after, walk_time)  # make transfer timetable
+
+tt.write_html_file('timetable_result.html', result, before_info, after_info, walk_time)  # convert to HTML file
+```
+
 ## 수정 내역 (Revision history)
 
 * Version 0.2: required custom transfer-walk-minutes.
@@ -211,4 +261,5 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 * Version 1.0.1: integrated saturday + sunday_holiday to weekend_holiday (except Sinnae station), and applied big timetable update due to COVID-19 pandemic
 * Version 1.0.2: added banner in README and Sosa station timetable sample
 * Version 1.0.3: separated all stop and express train in Line 9
+* Version 1.1: modulated and made available as a library
 
