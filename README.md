@@ -1,4 +1,4 @@
-# TransferTimetable 1.1
+# TransferTimetable 1.1.1
 
 ![Python application](https://github.com/creationyun/TransferTimetable/workflows/Python%20application/badge.svg)
 
@@ -57,7 +57,7 @@ If you want to look for several example files, please refer to the sample files 
 Timetable directory structure is as follows:
 
 * sinnae: Seoul Metropolitan Subway - Sinnae station
-  * weekday, saturday, sunday_holiday (Sunday and Holiday)
+  * weekday, weekend_holiday (Saturday, Sunday and Holiday)
     * `6_eungam_loop.txt`: Seoul Metro Line 6 - For Eungam Loop
     * `6_sinnae.txt`: Seoul Metro Line 6 - Sinnae arrival
     * `gyeongchun_cheongnyangni.txt`: KORAIL Gyeongchun Line - For Sangbong or Cheongnyangni
@@ -122,7 +122,7 @@ result = tt.derive_transfer_timetable(before, after, walk_time)  # make transfer
 tt.write_html_file('timetable_result.html', result, before_info, after_info, walk_time)  # convert to HTML file
 ```
 
-# 환승 시간표 1.1
+# 환승 시간표 1.1.1
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
@@ -178,51 +178,51 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 시간표 디렉토리 구조는 다음과 같습니다:
 
 * sinnae: 신내역
-  * weekday: 평일, saturday: 토요일, sunday_holiday: 일요일/공휴일
-    * `6_eungam_loop.txt`: 6호선 응암순환 방면
-    * `6_sinnae.txt`: 6호선 신내 도착
-    * `gyeongchun_cheongnyangni.txt`: 경춘선 상봉/청량리 방면
-    * `gyeongchun_chuncheon.txt`: 경춘선 춘천 방면
+  * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
+    * `6_eungam_loop.txt`: 서울교통공사 6호선 응암순환 방면
+    * `6_sinnae.txt`: 서울교통공사 6호선 신내 도착
+    * `gyeongchun_cheongnyangni.txt`: 코레일 경춘선 상봉/청량리 방면
+    * `gyeongchun_chuncheon.txt`: 코레일 경춘선 춘천 방면
 * imae: 이매역
   * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
-    * `suinbundang_wangsimni.txt`: 수인·분당선 왕십리 방면
-    * `suinbundang_incheon.txt`: 수인·분당선 인천 방면
-    * `gyeonggang_pangyo.txt`: 경강선 판교 방면
-    * `gyeonggang_yeoju.txt`: 경강선 여주 방면
+    * `suinbundang_wangsimni.txt`: 코레일 수인·분당선 왕십리 방면
+    * `suinbundang_incheon.txt`: 코레일 수인·분당선 인천 방면
+    * `gyeonggang_pangyo.txt`: 코레일 경강선 판교 방면
+    * `gyeonggang_yeoju.txt`: 코레일 경강선 여주 방면
 * choji: 초지역
   * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
-    * `4_danggogae.txt`: 4호선 당고개 방면
-    * `4_oido.txt`: 4호선 오이도 방면
+    * `4_danggogae.txt`: 서울교통공사/코레일 4호선 당고개 방면
+    * `4_oido.txt`: 서울교통공사/코레일 4호선 오이도 방면
     * `seohae_sosa.txt`: 서해선 소사 방면
     * `seohae_wonsi.txt`: 서해선 원시 방면
-    * `suinbundang_wangsimni.txt`: 수인·분당선 왕십리 방면
-    * `suinbundang_incheon.txt`: 수인·분당선 인천 방면
+    * `suinbundang_wangsimni.txt`: 코레일 수인·분당선 왕십리 방면
+    * `suinbundang_incheon.txt`: 코레일 수인·분당선 인천 방면
 * daegok: 대곡역
   * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
-    * `3_daehwa.txt`: 3호선 대화 방면
-    * `3_ogeum.txt`: 3호선 오금 방면
-    * `gyeonguijungang_munsan.txt`: 경의중앙선 문산 방면
-    * `gyeonguijungang_seoul_yongmun.txt`: 경의중앙선 용문/서울역 방면
+    * `3_daehwa.txt`: 서울교통공사/코레일 3호선 대화 방면
+    * `3_ogeum.txt`: 서울교통공사/코레일 3호선 오금 방면
+    * `gyeonguijungang_munsan.txt`: 코레일 경의중앙선 문산 방면
+    * `gyeonguijungang_seoul_yongmun.txt`: 코레일 경의중앙선 용문/서울역 방면
 * olympic_park: 올림픽공원역
   * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
-    * `5_banghwa.txt`: 5호선 방화 방면
-    * `5_macheon.txt`: 5호선 마천 방면
-    * `9a_gaehwa.txt`: 9호선 개화 방면 (일반열차)
-    * `9e_gimpo_intl_airport.txt`: 9호선 김포공항 방면 (급행열차)
-    * `9a_vhs_medical_center.txt`: 9호선 중앙보훈병원 방면 (일반열차)
-    * `9e_vhs_medical_center.txt`: 9호선 중앙보훈병원 방면 (급행열차)
+    * `5_banghwa.txt`: 서울교통공사 5호선 방화 방면
+    * `5_macheon.txt`: 서울교통공사 5호선 마천 방면
+    * `9a_gaehwa.txt`: 서울시메트로9호선 개화 방면 (일반열차)
+    * `9e_gimpo_intl_airport.txt`: 서울시메트로9호선 김포공항 방면 (급행열차)
+    * `9a_vhs_medical_center.txt`: 서울시메트로9호선 중앙보훈병원 방면 (일반열차)
+    * `9e_vhs_medical_center.txt`: 서울시메트로9호선 중앙보훈병원 방면 (급행열차)
 * sosa: 소사역
   * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
-    * `1_soyosan.txt`: 1호선 소요산 방면
-    * `1_incheon.txt`: 1호선 인천 방면
+    * `1_soyosan.txt`: 서울교통공사/코레일 1호선 소요산 방면
+    * `1_incheon.txt`: 서울교통공사/코레일 1호선 인천 방면
     * `seohae_sosa.txt`: 서해선 소사 도착
     * `seohae_wonsi.txt`: 서해선 원시 방면
 
 ## 라이브러리로 사용
 
-이 프로그램은 Python library로도 사용 가능합니다.
+이 프로그램은 Python 라이브러리로도 사용 가능합니다.
 
-시간표와 환승 시간표를 얻을 수 있는 3가지 기능을 제공합니다.
+이 라이브러리는 시간표와 환승 시간표를 얻을 수 있는 3가지 기능을 제공합니다.
 
 + `read_timetable()`: 시간표 파일과 시간표 정보 읽기
 + `derive_transfer_timetable()`: 2개의 시간표로부터 환승 시간표 만들기
@@ -261,5 +261,6 @@ tt.write_html_file('timetable_result.html', result, before_info, after_info, wal
 * Version 1.0.1: integrated saturday + sunday_holiday to weekend_holiday (except Sinnae station), and applied big timetable update due to COVID-19 pandemic
 * Version 1.0.2: added banner in README and Sosa station timetable sample
 * Version 1.0.3: separated all stop and express train in Line 9
-* Version 1.1: modulated and made available as a library
+* Version 1.1: modularized and made available as a library
+* Version 1.1.1: 2021/1/4, 2021/1/5 big timetable update
 
