@@ -37,18 +37,18 @@ The timetable file structure is a text file and you can write as follows.
 [Bound for] [Arrive time]
 ```
 
-1. In the first line, you can enter the station name, line name, train's workweek type and direction.
+1. In the first line, you can write the station name, line name, train's workweek type and direction.
 
    + Station: A name of subway station (e.g. Seoul_station, Victoria_station, ...)
    + Line name: A name of subway line (e.g. Metropolitan_Line, Circle_Line, ...)
    + Weekday/Saturday/Sunday/Holiday: The day which the timetable is in.
      + It is recommended to enter Sunday/Holiday together in the [Weekday/Saturday/Sunday/Holiday] field.
    + Direction of train: choose up or down
-     + If you are unsure, you can also enter a representative (bound for) destination, such as For_Aldgate.
+     + If you are unsure, you can also write a representative (bound for) destination, such as For_Aldgate.
    
-2. From the second line to the end, you can enter trains' destinations and arrival times.
+2. From the second line to the end, you can write trains' destinations and arrival times.
 
-This program recognizes the file contents as separated by spaces, so if they have spaces, enter them with underscores (_).
+This program recognizes the file contents as separated by spaces, so if they have spaces, write them with underscores (_).
 
 If you want to look for several example files, please refer to the sample files listed below.
 
@@ -222,11 +222,39 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
 
 이 프로그램은 Python 라이브러리로도 사용 가능합니다.
 
-이 라이브러리는 시간표와 환승 시간표를 얻을 수 있는 3가지 기능을 제공합니다.
+이 라이브러리는 시간표와 환승 시간표를 얻을 수 있는 3가지 함수를 제공합니다.
 
-+ `read_timetable()`: 시간표 파일과 시간표 정보 읽기
-+ `derive_transfer_timetable()`: 2개의 시간표로부터 환승 시간표 만들기
-+ `write_html_file()`: 환승 시간표와 관련 정보로 HTML 파일 생성
++ `read_timetable(filename, allow_terminal=True)`: 시간표 파일과 시간표 정보 읽기
+  + filename: 파일 경로를 포함한, 시간표 파일 이름, `str` 타입
+  + allow_terminal: 해당 역에 종착하는 열차의 경우 (행선지 == 역명) 허용 여부, `bool` 타입
+  + 반환 값: (시간표, 시간표 정보)
+    + 시간표: 열차 시간표의 나열, `list` 타입
+    + 시간표의 각 list의 원소는 다음과 같은 `dict` 타입으로 구성되어 있음.
+      + 'bound_for': 행선지, `str` 타입
+      + 'time': 도착 시간, `datetime.datetime` 타입
+    + 시간표 정보: 열차 시간표의 메타데이터, `dict` 타입
+      + 'station': 역명, `str` 타입
+      + 'line': 노선명, `str` 타입
+      + 'week': 평일/주말 구분, `str` 타입
+      + 'direction': 행선지 방향, `str` 타입
++ `derive_transfer_timetable(timetable1, timetable2, transfer_walk_time)`: 2개의 시간표로부터 환승 시간표 만들기
+  + timetable1: 환승하기 전 타고 온 열차의 시간표, `list` 타입
+  + timetable2: 환승한 후 탑승할 열차의 시간표, `list` 타입
+  + transfer_walk_time: 환승하는데 필요한 도보 시간, `datetime.timedelta` 타입
+  + 반환 값: 환승 연계 시간표의 나열, `list` 타입
+  + 반환 값의 각 list의 원소는 다음과 같은 `dict` 타입으로 구성되어 있음.
+    + 'before_transfer_train_bound': 환승 전 열차 행선지, `str` 타입
+    + 'after_transfer_train_bound': 환승 후 열차 행선지, `str` 타입
+    + 'before_transfer_train_time': 환승 전 열차 도착 시간
+    + 'after_transfer_train_time': 환승 후 열차 도착 시간
+    + 'transfer_time_needed': 환승 대기 시간 (환승 전과 후 열차 도착 시간의 차이)
+    + 'transfer_time_degree': 환승 대기 시간의 정도('high', 'middle', 'low'로 구분), `str` 타입
++ `write_html_file(filepath, result, timetable1_info, timetable2_info, transfer_walk_time)`: 환승 시간표와 관련 정보로 HTML 파일 생성
+  + filepath: 파일 경로를 포함한, 생성할 HTML의 파일 이름, `str` 타입
+  + result: `derive_transfer_timetable`의 반환 값
+  + timetable1_info: 환승 전의 시간표 정보
+  + timetable2_info: 환승 후의 시간표 정보
+  + transfer_walk_time: 환승하는데 필요한 도보 시간, `datetime.timedelta` 타입
 
 ### 코드 예시
 
