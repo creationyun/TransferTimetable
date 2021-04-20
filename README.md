@@ -1,4 +1,4 @@
-# TransferTimetable 1.1.2
+# TransferTimetable 1.2
 
 ![Python application](https://github.com/creationyun/TransferTimetable/workflows/Python%20application/badge.svg)
 
@@ -98,14 +98,23 @@ Timetable directory structure is as follows:
     * `1_incheon.txt`: Seoul Metro/KORAIL Line 1 - For Incheon
     * `seohae_sosa.txt`: Seohae Line - Sosa arrival
     * `seohae_wonsi.txt`: Seohae Line - For Wonsi
+* hoegi: Seoul Metropolitan Subway - Hoegi station
+  * weekday, weekend_holiday (Saturday, Sunday and Holiday)
+    * `1_soyosan.txt`: Seoul Metro/KORAIL Line 1 - For Soyosan
+    * `1_incheon_sinchang.txt`: Seoul Metro/KORAIL Line 1 - For Incheon/Sinchang
+    * `gyeonguijungang_munsan.txt`: KORAIL Gyeongui·Jungang Line - For Munsan
+    * `gyeonguijungang_yongmun.txt`: KORAIL Gyeongui·Jungang Line - For Yongmun
+    * `gyeongchun_cheongnyangni.txt`: KORAIL Gyeongchun Line - For Cheongnyangni
+    * `gyeongchun_chuncheon.txt`: KORAIL Gyeongchun Line - For Chuncheon
 
 ## Use as Library
 
 You can use it as python library and this provides 3 functions to get normal timetables and transfer timetables.
 
-+ `read_timetable(filename, allow_terminal=True)`: read timetable file and its information
++ `read_timetable(filename, allow_terminal=True, exclude_bound_for=None)`: read timetable file and its information
   + filename: station timetable file name including its path, `str` type
   + allow_terminal: whether the train terminates in the specific station (== bound-for station) or not, `bool` type
+  + exclude_bound_for: list of destinations to exclude in timetable, `list` type
   + Return value: (timetable, timetable meta-information)
     + timetable: a list of the trains arriving at the station, `list` type
     + Each element of the 'timetable' list consists of the following `dict` type
@@ -150,7 +159,7 @@ result = tt.derive_transfer_timetable(before, after, walk_time)  # make transfer
 tt.write_html_file('timetable_result.html', result, before_info, after_info, walk_time)  # convert to HTML file
 ```
 
-# 환승 시간표 1.1.2
+# 환승 시간표 1.2
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
@@ -246,14 +255,23 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
     * `1_incheon.txt`: 서울교통공사/코레일 1호선 인천 방면
     * `seohae_sosa.txt`: 서해선 소사 도착
     * `seohae_wonsi.txt`: 서해선 원시 방면
+* hoegi: 회기역
+  * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
+    * `1_soyosan.txt`: 서울교통공사/코레일 1호선 소요산 방면
+    * `1_incheon_sinchang.txt`: 서울교통공사/코레일 1호선 인천/신창 방면
+    * `gyeonguijungang_munsan.txt`: 코레일 경의중앙선 문산 방면
+    * `gyeonguijungang_yongmun.txt`: 코레일 경의중앙선 용문 방면
+    * `gyeongchun_cheongnyangni.txt`: 코레일 경춘선 청량리 방면
+    * `gyeongchun_chuncheon.txt`: 코레일 경춘선 춘천 방면
 
 ## 라이브러리로 사용
 
 이 프로그램은 Python 라이브러리로도 사용 가능하며, 일반적인 시간표와 환승 시간표를 얻을 수 있는 3가지 함수를 제공합니다.
 
-+ `read_timetable(filename, allow_terminal=True)`: 시간표 파일과 시간표 정보 읽기
++ `read_timetable(filename, allow_terminal=True, exclude_bound_for=None)`: 시간표 파일과 시간표 정보 읽기
   + filename: 파일 경로를 포함한, 시간표 파일 이름, `str` 타입
   + allow_terminal: 해당 역에 종착하는 열차의 경우 (행선지 == 역명) 허용 여부, `bool` 타입
+  + exclude_bound_for: 시간표에서 제외할 목적지의 목록, `list` 타입
   + 반환 값: (시간표, 시간표 정보)
     + 시간표: 열차 시간표의 나열, `list` 타입
     + 시간표의 각 list의 원소는 다음과 같은 `dict` 타입으로 구성되어 있음.
@@ -261,13 +279,9 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
       + time: 도착 시간, `datetime.datetime` 타입
     + 시간표 정보: 열차 시간표의 메타데이터, `dict` 타입
       + station: 역명, `str` 타입
-      
       + line: 노선명, `str` 타입
-      
       + week: 평일/주말 구분, `str` 타입
-      
       + direction: 행선지 방향, `str` 타입
-
 + `derive_transfer_timetable(timetable1, timetable2, transfer_walk_time)`: 2개의 시간표로부터 환승 시간표 만들기
   + timetable1: 환승하기 전 타고 온 열차의 시간표, `list` 타입
   + timetable2: 환승한 후 탑승할 열차의 시간표, `list` 타입
@@ -323,4 +337,5 @@ tt.write_html_file('timetable_result.html', result, before_info, after_info, wal
 * Version 1.1: modularized and made available as a library
 * Version 1.1.1: 2021/1/4, 2021/1/5 big timetable update
 * Version 1.1.2: 2021/2/8, 2021/3/1 timetable update, some revision of README.md
+* Version 1.2: added parameter `exclude_bound_for` in read_timetable function
 

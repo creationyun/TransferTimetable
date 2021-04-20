@@ -240,14 +240,17 @@ def write_html_file(filepath, result, timetable1_info, timetable2_info, transfer
     print(f'{filepath} saved.')
 
 
-def read_timetable(filename, allow_terminal=True):
+def read_timetable(filename, allow_terminal=True, exclude_bound_for=None):
     """
     Read timetable file and its information
 
     :param filename: file name you want to read as timetable
-    :param allow_terminal: with or without filtering trains arriving terminal
+    :param allow_terminal: whether the train terminates in this station or not
+    :param exclude_bound_for: list of destinations to exclude in timetable
     :return: timetable list and information
     """
+    if exclude_bound_for is None:
+        exclude_bound_for = []
     timetable = []
     timetable_info = {}
 
@@ -284,7 +287,11 @@ def read_timetable(filename, allow_terminal=True):
                 elif timetable_info['station'][-8] == '_':
                     if timetable_info['station'][:-8].lower() == bound_for.lower():
                         continue
-            
+
+        # filtering as train destination
+        if bound_for in exclude_bound_for:
+            continue
+
         timetable.append({
             'bound_for': bound_for,
             'time': datetime(2020, 1, 1+hour//24, hour % 24, minute, second)
