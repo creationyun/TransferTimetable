@@ -1,4 +1,4 @@
-# TransferTimetable 1.2
+# TransferTimetable 1.2.1
 
 ![Python application](https://github.com/creationyun/TransferTimetable/workflows/Python%20application/badge.svg)
 
@@ -9,7 +9,7 @@ The program compares the timetables of two stations to derive a transit timetabl
 This program is written in Python 3.x, so you need to install Anaconda or Python. (Virtual environment recommended)
 
 ```shell
-$ git checkout v1.1.2
+$ git checkout v1.2.1
 $ pip install -r requirements.txt
 $ python transfer_timetable.py path/to/timetable1.txt path/to/timetable2.txt transfer_walk_minute
 ```
@@ -106,6 +106,12 @@ Timetable directory structure is as follows:
     * `gyeonguijungang_yongmun.txt`: KORAIL Gyeongui·Jungang Line - For Yongmun
     * `gyeongchun_cheongnyangni.txt`: KORAIL Gyeongchun Line - For Cheongnyangni
     * `gyeongchun_chuncheon.txt`: KORAIL Gyeongchun Line - For Chuncheon
+* mangu: Seoul Metropolitan Subway - Mangu station
+  * weekday, weekend_holiday (Saturday, Sunday and Holiday)
+    * `gyeonguijungang_munsan.txt`: KORAIL Gyeongui·Jungang Line - For Munsan
+    * `gyeonguijungang_yongmun.txt`: KORAIL Gyeongui·Jungang Line - For Yongmun
+    * `gyeongchun_cheongnyangni.txt`: KORAIL Gyeongchun Line - For Cheongnyangni
+    * `gyeongchun_chuncheon.txt`: KORAIL Gyeongchun Line - For Chuncheon
 
 ## Use as Library
 
@@ -159,7 +165,7 @@ result = tt.derive_transfer_timetable(before, after, walk_time)  # make transfer
 tt.write_html_file('timetable_result.html', result, before_info, after_info, walk_time)  # convert to HTML file
 ```
 
-# 환승 시간표 1.2
+# 환승 시간표 1.2.1
 
 이 프로그램은 두 역의 시간표를 비교하여 환승 시간표를 도출하는 프로그램입니다.
 
@@ -168,7 +174,7 @@ tt.write_html_file('timetable_result.html', result, before_info, after_info, wal
 이 프로그램은 Python 3.x 으로 작성되어 있으므로, Anaconda 혹은 Python 설치가 필요합니다. (Virtual environment 권장)
 
 ```shell
-$ git checkout v1.1.2
+$ git checkout v1.2.1
 $ pip install -r requirements.txt
 $ python transfer_timetable.py path/to/timetable1.txt path/to/timetable2.txt transfer_walk_minute
 ```
@@ -263,6 +269,12 @@ $ python transfer_timetable.py sinnae/weekday/6_sinnae.txt sinnae/weekday/gyeong
     * `gyeonguijungang_yongmun.txt`: 코레일 경의중앙선 용문 방면
     * `gyeongchun_cheongnyangni.txt`: 코레일 경춘선 청량리 방면
     * `gyeongchun_chuncheon.txt`: 코레일 경춘선 춘천 방면
+* mangu: 망우역
+  * weekday: 평일, weekend_holiday: 주말(토/일)/공휴일
+    * `gyeonguijungang_munsan.txt`: 코레일 경의중앙선 문산 방면
+    * `gyeonguijungang_yongmun.txt`: 코레일 경의중앙선 용문 방면
+    * `gyeongchun_cheongnyangni.txt`: 코레일 경춘선 청량리 방면
+    * `gyeongchun_chuncheon.txt`: 코레일 경춘선 춘천 방면
 
 ## 라이브러리로 사용
 
@@ -338,4 +350,5 @@ tt.write_html_file('timetable_result.html', result, before_info, after_info, wal
 * Version 1.1.1: 2021/1/4, 2021/1/5 big timetable update
 * Version 1.1.2: 2021/2/8, 2021/3/1 timetable update, some revision of README.md
 * Version 1.2: added parameter `exclude_bound_for` in read_timetable function
+* version 1.2.1: added Mangu station timetable, and updated some timetables
 
